@@ -1,0 +1,34 @@
+<html><head></head>
+<body>
+you can us simple code for ajax!!
+<br>
+<strong>
+window.setInterval(function () {
+
+        $str = 2;
+        if ($str == "") {
+            document.getElementById("b1").innerHTML = "";
+            return;
+        } else if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+
+
+        }
+        else {
+
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+//-----------------------------------------------------------------get data
+                document.getElementById("b1").innerHTML = xmlhttp.responseText;
+            }
+        };
+        xmlhttp.open("GET", "test.php?q=" + $str, true);
+        xmlhttp.send();
+
+    }, 1000);
+	</strong>
+	</body>
+	</html>
